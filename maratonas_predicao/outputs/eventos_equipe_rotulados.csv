@@ -1,0 +1,144 @@
+evento_id,olimpiada,ano,edicao,evento_ordem,equipe,n_membros,classificacao,n_equipes_evento,alto_desempenho,evento_valido
+OLIP_2011_ed1,OLIP,2011,1,201101,Equipe Fenix,3,1.0,3,0,False
+OLIP_2011_ed1,OLIP,2011,1,201101,Equipe Programming Via Osmose,3,1.0,3,0,False
+OLIP_2011_ed1,OLIP,2011,1,201101,Equipe Versão Beta,3,2.0,3,0,False
+OLIP_2012_ed2,OLIP,2012,2,201201,Equipe Encoders,6,1.0,4,1,True
+OLIP_2012_ed2,OLIP,2012,2,201201,Equipe Inicial,2,3.0,4,0,True
+OLIP_2012_ed2,OLIP,2012,2,201201,Equipe Online,2,2.0,4,0,True
+OLIP_2012_ed2,OLIP,2012,2,201201,Equipe Osmose,3,2.0,4,0,True
+OLIP_2013_ed3,OLIP,2013,3,201301,Equipe Encoders 01,1,1.0,8,1,True
+OLIP_2013_ed3,OLIP,2013,3,201301,Equipe Encoders 02,1,1.0,8,1,True
+OLIP_2013_ed3,OLIP,2013,3,201301,Equipe Encoders 03,2,1.0,8,1,True
+OLIP_2013_ed3,OLIP,2013,3,201301,Equipe Encoders 04,1,2.0,8,0,True
+OLIP_2013_ed3,OLIP,2013,3,201301,Equipe Encoders 05,1,2.0,8,0,True
+OLIP_2013_ed3,OLIP,2013,3,201301,Equipe Expert,2,1.0,8,1,True
+OLIP_2013_ed3,OLIP,2013,3,201301,Equipe GameOver,3,2.0,8,0,True
+OLIP_2013_ed3,OLIP,2013,3,201301,Equipe Osmose,3,3.0,8,0,True
+OLIP_2014_ed4,OLIP,2014,4,201401,Equipe Bazinga,3,3.0,5,0,True
+OLIP_2014_ed4,OLIP,2014,4,201401,Equipe BitPlease,3,1.0,5,1,True
+OLIP_2014_ed4,OLIP,2014,4,201401,Equipe C + ou -,3,2.0,5,0,True
+OLIP_2014_ed4,OLIP,2014,4,201401,MuzProgramer,3,2.0,5,0,True
+OLIP_2014_ed4,OLIP,2014,4,201401,VisualChampz,3,1.0,5,1,True
+Mineira_2014_ed3,Mineira,2014,3,201402,Encoders01,3,23.0,3,0,True
+Mineira_2014_ed3,Mineira,2014,3,201402,Encoders02,3,15.0,3,0,True
+Mineira_2014_ed3,Mineira,2014,3,201402,Encoders03,3,35.0,3,0,True
+OLIP_2015_ed5,OLIP,2015,5,201501,Bixão da Goiaba,3,2.0,4,0,True
+OLIP_2015_ed5,OLIP,2015,5,201501,Equipe C + ou -,3,3.0,4,0,True
+OLIP_2015_ed5,OLIP,2015,5,201501,Flecha no Joelho!,2,1.0,4,1,True
+OLIP_2015_ed5,OLIP,2015,5,201501,The Sigma’s Code,3,2.0,4,0,True
+Mineira_2015_ed4,Mineira,2015,4,201502,Bixão da Goiaba,3,20.0,4,0,True
+Mineira_2015_ed4,Mineira,2015,4,201502,Flecha no Joelho,3,11.0,4,0,True
+Mineira_2015_ed4,Mineira,2015,4,201502,Os Bandicoots,3,38.0,4,0,True
+Mineira_2015_ed4,Mineira,2015,4,201502,Strong Code,3,25.0,4,0,True
+OLIP_2016_ed6,OLIP,2016,6,201601,Biiiirl,3,2.0,6,0,True
+OLIP_2016_ed6,OLIP,2016,6,201601,Flecha no Joelho,3,1.0,6,1,True
+OLIP_2016_ed6,OLIP,2016,6,201601,Garotos de Programa,3,3.0,6,0,True
+OLIP_2016_ed6,OLIP,2016,6,201601,Os MLK Dengoso,3,1.0,6,1,True
+OLIP_2016_ed6,OLIP,2016,6,201601,Ping Pong,3,2.0,6,0,True
+OLIP_2016_ed6,OLIP,2016,6,201601,Programmers,3,3.0,6,0,True
+Mineira_2016_ed5,Mineira,2016,5,201602,Bixão da Goiaba,3,30.0,4,0,True
+Mineira_2016_ed5,Mineira,2016,5,201602,DIG,3,36.0,4,0,True
+Mineira_2016_ed5,Mineira,2016,5,201602,Flecha no Joelho,3,14.0,4,0,True
+Mineira_2016_ed5,Mineira,2016,5,201602,The Power of Rada,3,40.0,4,0,True
+Escola de Inverno_2016_ed4,Escola de Inverno,2016,4,201607,Flecha no Joelho,3,1.0,1,0,False
+Nacional_2016_ed21,Nacional,2016,21,201608,Flecha no Joelho,3,44.0,1,0,True
+OLIP_2017_ed7,OLIP,2017,7,201701,A_FENIX,3,1.0,6,1,True
+OLIP_2017_ed7,OLIP,2017,7,201701,DID,3,3.0,6,0,True
+OLIP_2017_ed7,OLIP,2017,7,201701,Drone,2,2.0,6,0,True
+OLIP_2017_ed7,OLIP,2017,7,201701,Flecha no Joelho,3,1.0,6,1,True
+OLIP_2017_ed7,OLIP,2017,7,201701,Texugo Lenhador,3,2.0,6,0,True
+OLIP_2017_ed7,OLIP,2017,7,201701,War Team,3,3.0,6,0,True
+Mineira_2017_ed6,Mineira,2017,6,201702,Bixão da Goiaba Z,3,44.0,5,0,True
+Mineira_2017_ed6,Mineira,2017,6,201702,Byte na Nyte,3,32.0,5,0,True
+Mineira_2017_ed6,Mineira,2017,6,201702,DID,3,42.0,5,0,True
+Mineira_2017_ed6,Mineira,2017,6,201702,Flecha no Joelho,3,7.0,5,0,True
+Mineira_2017_ed6,Mineira,2017,6,201702,The dark side of the code,3,43.0,5,0,True
+OLIP_2018_ed8,OLIP,2018,8,201801,2 João e o outro não,3,2.0,4,0,True
+OLIP_2018_ed8,OLIP,2018,8,201801,Ainda Não Decidimos o Nome,3,3.0,4,0,True
+OLIP_2018_ed8,OLIP,2018,8,201801,if(coffee)break,3,2.0,4,0,True
+OLIP_2018_ed8,OLIP,2018,8,201801,return fenix,3,1.0,4,1,True
+Regional_2018_ed23,Regional,2018,23,201803,2 João e o outro não,3,10.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,Ainda Não Decidimos O Nome,3,6.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,Baguncinha na Califórnia,3,26.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,Jesus is Output: the return,3,17.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,M-SHAKE,3,16.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,Modus Ponens Malditos,3,29.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,No Coffee No Code,3,31.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,Platéia,3,19.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,Potra Mansa,3,32.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,Python no tucupi,3,8.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,"Run Time, Run!",3,28.0,12,0,True
+Regional_2018_ed23,Regional,2018,23,201803,The dark side of the code,3,18.0,12,0,True
+OLIP_2019_ed9,OLIP,2019,9,201901,Flecha na Canela,3,1.0,5,1,True
+OLIP_2019_ed9,OLIP,2019,9,201901,Never One,3,3.0,5,0,True
+OLIP_2019_ed9,OLIP,2019,9,201901,OLIPYTHONISTAS,3,1.0,5,1,True
+OLIP_2019_ed9,OLIP,2019,9,201901,Os Scriptonitas,3,2.0,5,0,True
+OLIP_2019_ed9,OLIP,2019,9,201901,PneumoultramicroscopicossilicovulcanoCodemons,3,2.0,5,0,True
+Regional_2019_ed24,Regional,2019,24,201903,Flecha na Canela,3,5.0,3,0,True
+Regional_2019_ed24,Regional,2019,24,201903,Maika'i,3,8.0,3,0,True
+Regional_2019_ed24,Regional,2019,24,201903,No Coffee No Code,3,9.0,3,0,True
+OLIP_2020_ed10,OLIP,2020,10,202001,Amigos da Aracele,3,1.0,6,1,True
+OLIP_2020_ed10,OLIP,2020,10,202001,Coding Knights,3,2.0,6,0,True
+OLIP_2020_ed10,OLIP,2020,10,202001,Parabellum,3,3.0,6,0,True
+OLIP_2020_ed10,OLIP,2020,10,202001,Ricardo Martins,3,1.0,6,1,True
+OLIP_2020_ed10,OLIP,2020,10,202001,Três Espiãs Demais,3,2.0,6,0,True
+OLIP_2020_ed10,OLIP,2020,10,202001,Vo vê o nome e te aviso 2.0,3,3.0,6,0,True
+Regional_2020_ed25,Regional,2020,25,202003,Amigos da Aracele,3,9.0,1,0,True
+Nacional_2020_ed25,Nacional,2020,25,202008,Amigos da Aracele,3,46.0,1,0,True
+OLIP_2021_ed11,OLIP,2021,11,202101,Unidos da Aracele,3,1.0,2,0,False
+OLIP_2021_ed11,OLIP,2021,11,202101,www.com,3,1.0,2,0,False
+InterIF_2021_ed4,InterIF,2021,4,202106,Amigos da Aracele,3,3.0,2,1,True
+InterIF_2021_ed4,InterIF,2021,4,202106,www.com,3,9.0,2,0,True
+OLIP_2022_ed12,OLIP,2022,12,202201,Amigos do Joaopin,2,2.0,5,0,True
+OLIP_2022_ed12,OLIP,2022,12,202201,C tá loco,3,2.0,5,0,True
+OLIP_2022_ed12,OLIP,2022,12,202201,C++ só para baixinhos,3,3.0,5,0,True
+OLIP_2022_ed12,OLIP,2022,12,202201,"Fugere Urbem, Locus Amoenus ¯\_(ツ)_/¯",1,1.0,5,1,True
+OLIP_2022_ed12,OLIP,2022,12,202201,Pylantras,2,3.0,5,0,True
+Mineira_2022_ed9,Mineira,2022,9,202202,A Flecha da Aracele,3,8.0,5,0,True
+Mineira_2022_ed9,Mineira,2022,9,202202,Agnaldo em Timóteo,3,41.0,5,0,True
+Mineira_2022_ed9,Mineira,2022,9,202202,"Freeza, por que você compilou no Kotlin?",3,21.0,5,0,True
+Mineira_2022_ed9,Mineira,2022,9,202202,Py tá on!,3,38.0,5,0,True
+Mineira_2022_ed9,Mineira,2022,9,202202,Receba!,3,31.0,5,0,True
+Regional_2022_ed27,Regional,2022,27,202203,);DROP TABLE 'alunos';,3,8.0,4,0,True
+Regional_2022_ed27,Regional,2022,27,202203,Amigos do Joãopin,3,9.0,4,0,True
+Regional_2022_ed27,Regional,2022,27,202203,"Fugere Urbem, Locus Amoenus ¯\_(:-))_/¯",3,3.0,4,1,True
+Regional_2022_ed27,Regional,2022,27,202203,The Programmingstones,3,10.0,4,0,True
+OLIP_2023_ed13,OLIP,2023,13,202301,Coffee Overflow,3,2.0,2,0,False
+OLIP_2023_ed13,OLIP,2023,13,202301,"Murilo, Amigos do",2,2.0,2,0,False
+Mineira_2023_ed10,Mineira,2023,10,202302,2 Paulo e o outro nao,3,29.0,4,0,True
+Mineira_2023_ed10,Mineira,2023,10,202302,Amigos do Gaguinho,3,14.0,4,0,True
+Mineira_2023_ed10,Mineira,2023,10,202302,Dinho em Ouro Branco,3,37.0,4,0,True
+Mineira_2023_ed10,Mineira,2023,10,202302,ELA bora!,3,50.0,4,0,True
+Regional_2023_ed28,Regional,2023,28,202303,Advogado Paloma,3,8.0,6,0,True
+Regional_2023_ed28,Regional,2023,28,202303,Amigos do Gaguinho,3,1.0,6,1,True
+Regional_2023_ed28,Regional,2023,28,202303,C + ou -,3,10.0,6,0,True
+Regional_2023_ed28,Regional,2023,28,202303,Depois de 3 WA pede Música?,3,11.0,6,0,True
+Regional_2023_ed28,Regional,2023,28,202303,Ian Turbinado,3,12.0,6,0,True
+Regional_2023_ed28,Regional,2023,28,202303,Leop,3,6.0,6,0,True
+Nacional_2023_ed28,Nacional,2023,28,202308,Amigos do Gaguinho,3,35.0,1,0,True
+Mineira_2024_ed11,Mineira,2024,11,202402,Amigos do Dog Carmelo de Monte Caramelo,3,13.0,3,0,True
+Mineira_2024_ed11,Mineira,2024,11,202402,Programadoras Superpoderosas,3,51.0,3,0,True
+Mineira_2024_ed11,Mineira,2024,11,202402,_'; DROP TABLE teams; --:,3,30.0,3,0,True
+Regional_2024_ed29,Regional,2024,29,202403,3 WA em Muzambinho,3,4.0,4,0,True
+Regional_2024_ed29,Regional,2024,29,202403,Algoholics,3,7.0,4,0,True
+Regional_2024_ed29,Regional,2024,29,202403,Amigos do Mortandela,3,1.0,4,1,True
+Regional_2024_ed29,Regional,2024,29,202403,Veneninho,3,3.0,4,1,True
+Nacional_2024_ed29,Nacional,2024,29,202408,Amigos do Mortandela,3,32.0,1,0,True
+OLIP_2025_ed14,OLIP,2025,14,202501,Amigos do John,2,1.0,5,1,True
+OLIP_2025_ed14,OLIP,2025,14,202501,Inimigos do Lázaro,3,1.0,5,1,True
+OLIP_2025_ed14,OLIP,2025,14,202501,"Sem WA irmão, sort",3,2.0,5,0,True
+OLIP_2025_ed14,OLIP,2025,14,202501,Veneninho,3,3.0,5,0,True
+OLIP_2025_ed14,OLIP,2025,14,202501,los pitufos,2,3.0,5,0,True
+Mineira_2025_ed12,Mineira,2025,12,202502,404 Boys Not Found,3,41.0,4,0,True
+Mineira_2025_ed12,Mineira,2025,12,202502,CompilA,3,46.0,4,0,True
+Mineira_2025_ed12,Mineira,2025,12,202502,Ubá Ubá Ubá Ê,3,11.0,4,0,True
+Mineira_2025_ed12,Mineira,2025,12,202502,f(ubá),3,42.0,4,0,True
+Regional_2025_ed30,Regional,2025,30,202503,Bhrallysson Thaylor,3,11.0,4,0,True
+Regional_2025_ed30,Regional,2025,30,202503,"Sem WA irmão, sort",3,4.0,4,0,True
+Regional_2025_ed30,Regional,2025,30,202503,Veneninho,3,5.0,4,0,True
+Regional_2025_ed30,Regional,2025,30,202503,"string[] coffebreak = [ ""mortandela"", ""café"", ""pão de queijo"", ""bolo"", ""mortandela"", ""suco"", ""biscoitos"", ""frutas"", ""água"", ""mortandela"" ];",3,10.0,4,0,True
+Minas de Minas_2025_ed1,Minas de Minas,2025,1,202505,404 Girls,2,,5,0,False
+Minas de Minas_2025_ed1,Minas de Minas,2025,1,202505,Binarretes,3,,5,0,False
+Minas de Minas_2025_ed1,Minas de Minas,2025,1,202505,ByteGirl,2,,5,0,False
+Minas de Minas_2025_ed1,Minas de Minas,2025,1,202505,Duo,1,,5,0,False
+Minas de Minas_2025_ed1,Minas de Minas,2025,1,202505,GAS Code,3,,5,0,False
