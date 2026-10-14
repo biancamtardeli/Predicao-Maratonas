@@ -21,11 +21,15 @@ def criar_dataset_equipes(df):
 
         # ── Atributos históricos agregados ────────────────────────────────────
         exp_media           = g['exp_total'].mean()
-        exp_max             = g['exp_total'].max()       # membro mais veterano
-        exp_min             = g['exp_total'].min()       # membro mais novato
-        podios_soma         = g['podios_hist'].sum()     # pódios acumulados do trio
-        exp_superior_media  = g['exp_superior'].mean()   # bagagem em fases avançadas
-        membros_ja_venceram = g['ja_venceu'].sum()       # quantos já ganharam medalha
+        exp_max             = g['exp_total'].max()       
+        exp_min             = g['exp_total'].min()       
+        
+        # Novas agregações de pódio:
+        podios_indiv_soma   = g['podios_indiv'].sum() 
+        score_podios_soma   = g['score_podios'].sum() 
+
+        exp_superior_media  = g['exp_superior'].mean()   
+        membros_ja_venceram = g['ja_venceu'].sum()
 
         # ── Variável alvo ──────────────────────────────────────────────────────
         # As colunas Olimpíada, Ano e Categoria ainda existem no grupo
@@ -53,11 +57,14 @@ def criar_dataset_equipes(df):
             'exp_media':             exp_media,
             'exp_max':               exp_max,
             'exp_min':               exp_min,
-            'podios_soma':           podios_soma,
             'exp_superior_media':    exp_superior_media,
             'membros_ja_venceram':   membros_ja_venceram,
             'classificacao':         classificacao,
             'alto_desempenho':       alto_desempenho,
+            'exp_min':               exp_min,
+            'podios_indiv_soma':     podios_indiv_soma, # Retornando
+            'score_podios_soma':     score_podios_soma, # Retornando
+            'exp_superior_media':    exp_superior_media,
         })
 
     equipes_df = (df_eq

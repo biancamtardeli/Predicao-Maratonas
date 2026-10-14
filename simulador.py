@@ -79,10 +79,14 @@ def simular_equipe(
         for m in membros
     )
 
-    podios = sum(
-        m.get('podios_hist', 0)
-        for m in membros
-    )
+    # Mantemos 'podios_hist' como legado para os pódios em equipe
+    podios_equipe = sum(m.get('podios_hist', 0) for m in membros)
+    
+    # Nova chave para pódios individuais (se não for passada, assume 0)
+    podios_indiv_soma = sum(m.get('podios_indiv', 0) for m in membros)
+    
+    # Nosso novo cálculo de peso (peso 2 para o individual)
+    score_podios_soma = podios_equipe + (podios_indiv_soma * 2)
 
     exp_sup_med = np.mean([
         m.get('exp_superior', 0)
@@ -91,7 +95,7 @@ def simular_equipe(
 
     ja_venc = sum(
         1 for m in membros
-        if m.get('podios_hist', 0) > 0
+        if m.get('podios_hist', 0) > 0 or m.get('podios_indiv', 0) > 0
     )
 
     # ── Montar vetor de features na mesma ordem do treino ────────────────
@@ -104,7 +108,8 @@ def simular_equipe(
         'exp_media': exp_med,
         'exp_max': exp_max_v,
         'exp_min': exp_min_v,
-        'podios_soma': podios,
+        'podios_indiv_soma': podios_indiv_soma,  # <-- CHAVE NOVA
+        'score_podios_soma': score_podios_soma,  # <-- CHAVE NOVA
         'exp_superior_media': exp_sup_med,
         'membros_ja_venceram': ja_venc,
         'n_membros': n,

@@ -157,12 +157,11 @@ print(f"\n[7/7] Gerando simulador de equipes...")
 # ── Exemplos de simulação ──────────────────────────────────────────────────
 print("\n  ── Exemplos de uso do simulador ────────────────────────────")
 
-# Exemplo 1: equipe experiente na OLIP Superior
 simular_equipe(
     membros=[
-        {'nome': 'Aluno A', 'sexo': 'M', 'periodo': 6, 'exp_total': 5, 'podios_hist': 2, 'exp_superior': 3},
+        {'nome': 'Aluno A', 'sexo': 'M', 'periodo': 6, 'exp_total': 5, 'podios_hist': 1, 'podios_indiv': 2, 'exp_superior': 3},
         {'nome': 'Aluno B', 'sexo': 'M', 'periodo': 5, 'exp_total': 4, 'podios_hist': 1, 'exp_superior': 2},
-        {'nome': 'Aluno C', 'sexo': 'F', 'periodo': 6, 'exp_total': 3, 'podios_hist': 1, 'exp_superior': 1},
+        {'nome': 'Aluno C', 'sexo': 'F', 'periodo': 6, 'exp_total': 3, 'podios_hist': 0, 'exp_superior': 1},
     ],
     olimpiada='OLIP', 
     melhor_modelo=melhor_modelo, 
@@ -174,8 +173,8 @@ simular_equipe(
 # Exemplo 2: equipe novata na OLIP Superior
 simular_equipe(
     membros=[
-        {'nome': 'Calouro A', 'sexo': 'M', 'periodo': 1, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
-        {'nome': 'Calouro B', 'sexo': 'M', 'periodo': 1, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
+        {'nome': 'Veterano A', 'sexo': 'F', 'periodo': 5, 'exp_total': 5, 'podios_hist': 3, 'podios_indiv': 2, 'exp_superior': 3},
+        {'nome': 'Calouro B', 'sexo': 'M', 'periodo': 1, 'exp_total': 0, 'podios_hist': 0,'exp_superior': 0},
         {'nome': 'Calouro C', 'sexo': 'M', 'periodo': 2, 'exp_total': 1, 'podios_hist': 0, 'exp_superior': 0},
     ],
     olimpiada='Regional', 

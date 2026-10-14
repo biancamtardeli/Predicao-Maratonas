@@ -14,7 +14,8 @@ def preparar_dados(equipes_df):
         'exp_media',
         'exp_max',
         'exp_min',
-        'podios_soma',
+        'podios_indiv_soma',    # Feature nova
+        'score_podios_soma',    # Feature ponderada
         'exp_superior_media',
         'membros_ja_venceram',
         'n_membros',
