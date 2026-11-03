@@ -68,4 +68,6 @@ def carregar_dados():
 
     # Ordenação cronológica — essencial para feature engineering
     df = df.sort_values(['Ano', 'Olimpíada', 'Nome']).reset_index(drop=True)
+    df.to_csv('dados_processados.csv', index=False, encoding='utf-8')
+
     return df
