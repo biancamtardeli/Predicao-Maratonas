@@ -1,34 +1,8 @@
-import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
-
-from sklearn.metrics import (
-    classification_report,
-    confusion_matrix,
-    ConfusionMatrixDisplay,
-    roc_curve,
-    roc_auc_score,
-)
-
-
-def gerar_relatorio(melhor_modelo, melhor_nome, X, y):
-    y_pred = melhor_modelo.predict(X)
-    y_prob = melhor_modelo.predict_proba(X)[:, 1]
-
-    print(
-        f"\n  ── Relatório de Classificação ({melhor_nome}) "
-        f"nos dados originais ──"
-    )
-
-    print(
-        classification_report(
-            y,
-            y_pred,
-            target_names=["Baixo desempenho", "Alto desempenho"],
-        )
-    )
-
-    return y_pred, y_prob
+from sklearn.model_selection import StratifiedKFold, cross_val_predict
+from imblearn.pipeline import Pipeline as ImbPipeline
+from imblearn.over_sampling import RandomOverSampler
+from configuracoes import N_FOLDS, SEED
 
 
 def gerar_graficos(
@@ -38,8 +12,6 @@ def gerar_graficos(
     resultados,
     X,
     y,
-    X_bal,
-    y_bal,
     equipes_df,
     y_pred,
     y_prob,
@@ -73,7 +45,7 @@ def gerar_graficos(
     # 2. Matriz de confusão
     fig2, ax2 = plt.subplots(figsize=(6, 5))
     cm = confusion_matrix(y, y_pred)
-    disp = ConfusionMatrixDisplay(cm, display_labels=["Baixo\\ndesempenho", "Alto\\ndesempenho"])
+    disp = ConfusionMatrixDisplay(cm, display_labels=["Baixo\ndesempenho", "Alto\ndesempenho"])
     disp.plot(ax=ax2, colorbar=False, cmap="Blues")
     ax2.set_title(f"Matriz de Confusão ({melhor_nome})", fontweight="bold")
     plt.tight_layout()
@@ -95,12 +67,21 @@ def gerar_graficos(
 
     # 4. Curva ROC
     fig4, ax4 = plt.subplots(figsize=(7, 5))
+    cv = StratifiedKFold(n_splits=N_FOLDS, shuffle=True, random_state=SEED)
+
     for nome, modelo in modelos.items():
-        modelo.fit(X_bal, y_bal)
-        prob = modelo.predict_proba(X)[:, 1]
-        fpr, tpr, _ = roc_curve(y, prob)
-        auc = roc_auc_score(y, prob)
-        ax4.plot(fpr, tpr, label=f"{nome} (AUC={auc:.3f})", linewidth=2)
+        pipe = ImbPipeline([
+            ('oversampler', RandomOverSampler(random_state=SEED)),
+            ('clf', modelo)
+        ])
+        # Probabilidades fora da amostra (Validação Cruzada)
+        y_prob_modelo = cross_val_predict(
+            pipe, X, y, cv=cv, method='predict_proba'
+        )[:, 1]
+
+        fpr, tpr, _ = roc_curve(y, y_prob_modelo)
+        auc_score = roc_auc_score(y, y_prob_modelo)
+        ax4.plot(fpr, tpr, lw=2, label=f'{nome} (AUC={auc_score:.3f})')
     ax4.plot([0, 1], [0, 1], "k--", linewidth=1)
     ax4.set_title("Curva ROC", fontweight="bold")
     ax4.set_xlabel("Taxa de Falso Positivo")

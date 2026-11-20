@@ -25,6 +25,7 @@ def simular_equipe(
         - exp_total     : int  (quantas maratonas já participou)
         - podios_hist   : int  (quantos pódios já ganhou)
         - exp_superior  : int  (participações em Regional/Mineira/Nacional)
+        - podios_indiv : int (pódios em competições individuais)
 
     olimpiada : 'OLIP' | 'Regional' | 'Mineira' | 'Nacional' | ...
 
@@ -45,7 +46,7 @@ def simular_equipe(
     if n < 2:
         raise ValueError("Uma equipe precisa de pelo menos 2 membros.")
 
-    # ── Agregar atributos dos membros ─────────────────────────────────────
+    # Agregar atributos dos membros
 
     feminino = sum(
         1 for m in membros
@@ -79,14 +80,14 @@ def simular_equipe(
         for m in membros
     )
 
-    # Mantemos 'podios_hist' como legado para os pódios em equipe
+    # podios_hist = legado para os pódios em equipe
     podios_equipe = sum(m.get('podios_hist', 0) for m in membros)
     
-    # Nova chave para pódios individuais (se não for passada, assume 0)
+    # pódios individuais (se não for passado, assume 0)
     podios_indiv_soma = sum(m.get('podios_indiv', 0) for m in membros)
     
-    # Nosso novo cálculo de peso (peso 2 para o individual)
-    score_podios_soma = podios_equipe + (podios_indiv_soma * 2)
+    # cálculo de peso (peso 1.5 para o individual)
+    score_podios_soma = podios_equipe + (podios_indiv_soma * 1.5)
 
     exp_sup_med = np.mean([
         m.get('exp_superior', 0)
@@ -98,7 +99,7 @@ def simular_equipe(
         if m.get('podios_hist', 0) > 0 or m.get('podios_indiv', 0) > 0
     )
 
-    # ── Montar vetor de features na mesma ordem do treino ────────────────
+    # Montar vetor de features na mesma ordem do treino
 
     features_base = {
         'proporcao_feminino': feminino,
@@ -115,7 +116,7 @@ def simular_equipe(
         'n_membros': n,
     }
 
-    # ── Dummies de olimpíada ──────────────────────────────────────────────
+    # Dummies de olimpíada
 
     olimp_cols = {
         c: 0
@@ -141,7 +142,7 @@ def simular_equipe(
 
     pred = int(prob >= 0.5)
 
-    # ── Limite de medalha ────────────────────────────────────────────────
+    # Limite de medalha
 
     lim = limite_medalha(
         olimpiada,
@@ -149,7 +150,7 @@ def simular_equipe(
         ano
     )
 
-    # ── Exibir resultado ─────────────────────────────────────────────────
+    # Exibir resultado
 
     if verbose:
         print("\n" + "─" * 60)
@@ -162,7 +163,8 @@ def simular_equipe(
                 f"Sexo: {m.get('sexo', '?')} | "
                 f"Período: {m.get('periodo', '?')} | "
                 f"Maratonas: {m.get('exp_total', 0)} | "
-                f"Pódios: {m.get('podios_hist', 0)}"
+                f"Pódios Eq.: {m.get('podios_hist', 0)} | "
+                f"Pódios Indiv.: {m.get('podios_indiv', 0)}"
             )
 
         print(

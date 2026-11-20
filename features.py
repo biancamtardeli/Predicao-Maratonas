@@ -1,5 +1,4 @@
 import pandas as pd
-from dados import carregar_dados
 
 def calcular_historico(df):
     df['evento_id'] = df.groupby(['Ano', 'Olimpíada']).ngroup()
@@ -20,8 +19,8 @@ def calcular_historico(df):
         podios_equipe = int(passado_equipe['podio'].sum())
         podios_indiv  = int(passado_indiv['podio'].sum())
         
-        # ── O SEU CÁLCULO DE PESO ──
-        # Pódio individual vale o dobro (ou mais, se você quiser testar depois)
+        # ── CÁLCULO DE PESO ──
+        # Pódio individual vale 1.5 vezes o pódio em equipe
         score_podios = podios_equipe + (podios_indiv * 1.5) 
 
         exp_superior = int((passado['Olimpíada'].isin({'Regional', 'Mineira', 'Nacional'})).sum())
@@ -31,8 +30,8 @@ def calcular_historico(df):
         historico_rows.append({
             'idx': idx,
             'exp_total':    exp_total,
-            'podios_indiv': podios_indiv, # Nova feature pura
-            'score_podios': score_podios, # Nova feature com peso manual
+            'podios_indiv': podios_indiv,
+            'score_podios': score_podios,
             'exp_superior': exp_superior,
             'exp_olip':     exp_olip,
             'ja_venceu':    ja_venceu,

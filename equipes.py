@@ -13,18 +13,17 @@ def criar_dataset_equipes(df):
         """Transforma N linhas de membros em 1 linha de equipe."""
         n = len(g)
 
-        # ── Atributos de composição da equipe ─────────────────────────────────
+        # Atributos de composição da equipe
         proporcao_feminino  = (g['Sexo'] == 'F').mean()
         proporcao_superior  = (g['Categoria'] == 'Superior').mean()
         periodo_medio       = g['Periodo'].mean()
         periodo_max         = g['Periodo'].max()
 
-        # ── Atributos históricos agregados ────────────────────────────────────
+        # Atributos históricos agregados
         exp_media           = g['exp_total'].mean()
         exp_max             = g['exp_total'].max()       
         exp_min             = g['exp_total'].min()       
         
-        # Novas agregações de pódio:
         podios_indiv_soma   = g['podios_indiv'].sum() 
         score_podios_soma   = g['score_podios'].sum() 
 
@@ -32,8 +31,7 @@ def criar_dataset_equipes(df):
         membros_ja_venceram = g['ja_venceu'].sum()
 
         # ── Variável alvo ──────────────────────────────────────────────────────
-        # As colunas Olimpíada, Ano e Categoria ainda existem no grupo
-        # (include_groups=False não remove as chaves do DataFrame, só do cálculo)
+
         classificacao   = g['Classificação'].iloc[0]
         olimpiada       = g.name[1]   # índice 1 = Olimpíada na chave (Ano, Olimpíada, Equipe)
         categoria_grupo = g['Categoria'].iloc[0]
@@ -61,10 +59,8 @@ def criar_dataset_equipes(df):
             'membros_ja_venceram':   membros_ja_venceram,
             'classificacao':         classificacao,
             'alto_desempenho':       alto_desempenho,
-            'exp_min':               exp_min,
-            'podios_indiv_soma':     podios_indiv_soma, # Retornando
-            'score_podios_soma':     score_podios_soma, # Retornando
-            'exp_superior_media':    exp_superior_media,
+            'podios_indiv_soma':     podios_indiv_soma,
+            'score_podios_soma':     score_podios_soma, 
         })
 
     equipes_df = (df_eq

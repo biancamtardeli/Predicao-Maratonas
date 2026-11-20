@@ -2,15 +2,6 @@
 MODELO PREDITIVO DE DESEMPENHO EM MARATONAS DE PROGRAMAÇÃO
 IFSULDEMINAS - Campus Muzambinho
 
-Metodologia conforme Projeto de Pesquisa (Bianca Martins Tardeli, 2026):
-  1. Limpeza e filtragem dos dados
-  2. Engenharia de Atributos Históricos (Feature Engineering)
-  3. Agrupamento por equipes (linha = equipe única)
-  4. Binarização da variável alvo por olimpíada/categoria/ano
-  5. Treinamento: Random Forest, Gradient Boosting, XGBoost
-  6. Avaliação: Acurácia, Precisão, Sensibilidade, F1-Score
-  7. Importância dos atributos
-  8. Simulador de equipes
 """
 
 import warnings
@@ -24,11 +15,11 @@ from regras import eh_podio
 from dados import carregar_dados
 from treinamento import preparar_dados, criar_modelos, treinar_modelos
 from relatorios import (
-    gerar_relatorio,
     gerar_graficos,
     salvar_resultados,
 )
 from simulador import simular_equipe
+from sklearn.metrics import classification_report
 
 warnings.filterwarnings('ignore')
 
@@ -88,17 +79,10 @@ print(f"  ✓ {len(equipes_df)} equipes únicas | "
 # ══════════════════════════════════════════════════════════════════════════════
 print("\n[4/7] Preparando features e tratando desbalanceamento...")
 
-X, y, X_bal, y_bal = preparar_dados(equipes_df)
+X, y = preparar_dados(equipes_df)
 
-print(f"  ✓ Features: {X.shape[1]} | "
-      f"Amostras originais: {len(y)} | "
-      f"Após balanceamento: {len(y_bal)}")
-
-# Verificar distribuição de classes após balanceamento
-n_pos = int(y_bal.sum())
-n_neg = int((y_bal == 0).sum())
-print(f"  ✓ Alto desempenho: {n_pos} | Baixo desempenho: {n_neg}")
-
+print(f"  ✓ Features: {X.shape[1]} | Amostras originais: {len(y)}")
+print(f"  ✓ Alto desempenho: {int(y.sum())} | Baixo desempenho: {int((y == 0).sum())}")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # BLOCO 6 — TREINAMENTO E AVALIAÇÃO (validação cruzada estratificada)
@@ -107,9 +91,9 @@ print(f"\n[5/7] Treinando modelos com validação cruzada ({N_FOLDS}-fold)...")
 
 modelos = criar_modelos()
 
-melhor_nome, resultados, melhor_modelo, modelos = treinar_modelos(
-    X_bal,
-    y_bal,
+melhor_nome, resultados, melhor_modelo, modelos, y_pred_cv, y_prob_cv = treinar_modelos(
+    X,
+    y,
     modelos
 )
 
@@ -120,13 +104,7 @@ print(f"\n  🏆 Melhor modelo: {melhor_nome} "
 # BLOCO 7 — RELATÓRIO DETALHADO NO CONJUNTO ORIGINAL
 # ══════════════════════════════════════════════════════════════════════════════
 print(f"\n[6/7] Gerando relatório e gráficos...")
-
-y_pred, y_prob = gerar_relatorio(
-    melhor_modelo,
-    melhor_nome,
-    X,
-    y,
-)
+print(classification_report(y, y_pred_cv, target_names=['Baixo desempenho', 'Alto desempenho']))
 
 equipes_pred = gerar_graficos(
     melhor_modelo,
@@ -135,11 +113,9 @@ equipes_pred = gerar_graficos(
     resultados,
     X,
     y,
-    X_bal,
-    y_bal,
     equipes_df,
-    y_pred,
-    y_prob,
+    y_pred_cv,
+    y_prob_cv,
     PASTA_SAIDA,
 )
 
@@ -154,49 +130,130 @@ salvar_resultados(
 # ══════════════════════════════════════════════════════════════════════════════
 print(f"\n[7/7] Gerando simulador de equipes...")
 
-# ── Exemplos de simulação ──────────────────────────────────────────────────
-print("\n  ── Exemplos de uso do simulador ────────────────────────────")
+# ==============================================================================
+# CENÁRIOS DE SIMULAÇÃO PARA A SEÇÃO 5.4 (OLIP E REGIONAL)
+# ==============================================================================
 
-simular_equipe(
-    membros=[
-        {'nome': 'Aluno A', 'sexo': 'M', 'periodo': 6, 'exp_total': 5, 'podios_hist': 1, 'podios_indiv': 2, 'exp_superior': 3},
-        {'nome': 'Aluno B', 'sexo': 'M', 'periodo': 5, 'exp_total': 4, 'podios_hist': 1, 'exp_superior': 2},
-        {'nome': 'Aluno C', 'sexo': 'F', 'periodo': 6, 'exp_total': 3, 'podios_hist': 0, 'exp_superior': 1},
-    ],
-    olimpiada='OLIP', 
-    melhor_modelo=melhor_modelo, 
-    X=X, 
-    categoria='Superior', 
-    ano=2026
-)
+cenarios_simulacao = [
+    # --- CENÁRIOS OLIP ---
+    {
+        "nome_cenario": "OLIP 1 - Calouros Puros (Superior)",
+        "olimpiada": "OLIP",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Calouro A', 'sexo': 'M', 'periodo': 2, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
+            {'nome': 'Caloura B', 'sexo': 'F', 'periodo': 2, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
+            {'nome': 'Calouro C', 'sexo': 'M', 'periodo': 2, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
+        ]
+    },
+    {
+        "nome_cenario": "OLIP 2 - Técnico Experiente",
+        "olimpiada": "OLIP",
+        "categoria": "Técnico",
+        "membros": [
+            {'nome': 'Técnico A', 'sexo': 'M', 'periodo': 3, 'exp_total': 2, 'podios_hist': 1, 'exp_superior': 0},
+            {'nome': 'Técnica B', 'sexo': 'F', 'periodo': 3, 'exp_total': 2, 'podios_hist': 0, 'exp_superior': 0},
+            {'nome': 'Técnico C', 'sexo': 'M', 'periodo': 3, 'exp_total': 2, 'podios_hist': 0, 'exp_superior': 0},
+        ]
+    },
+    {
+        "nome_cenario": "OLIP 3 - Mista (Âncora + Novatos)",
+        "olimpiada": "OLIP",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Veterana A', 'sexo': 'F', 'periodo': 6, 'exp_total': 4, 'podios_hist': 2, 'exp_superior': 2},
+            {'nome': 'Calouro B',  'sexo': 'M', 'periodo': 2, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
+            {'nome': 'Calouro C',  'sexo': 'M', 'periodo': 2, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
+        ]
+    },
+    {
+        "nome_cenario": "OLIP 4 - Trio Consolidado (Superior)",
+        "olimpiada": "OLIP",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Veterano A', 'sexo': 'M', 'periodo': 8, 'exp_total': 5, 'podios_hist': 2, 'exp_superior': 3},
+            {'nome': 'Veterana B', 'sexo': 'F', 'periodo': 6, 'exp_total': 4, 'podios_hist': 1, 'exp_superior': 2},
+            {'nome': 'Veterano C', 'sexo': 'M', 'periodo': 6, 'exp_total': 4, 'podios_hist': 1, 'exp_superior': 2},
+        ]
+    },
+    {
+        "nome_cenario": "OLIP 5 - Trio Consolidado + Pódios Individuais",
+        "olimpiada": "OLIP",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Veterano A', 'sexo': 'M', 'periodo': 8, 'exp_total': 5, 'podios_hist': 2, 'podios_indiv': 2, 'exp_superior': 3},
+            {'nome': 'Veterana B', 'sexo': 'F', 'periodo': 6, 'exp_total': 4, 'podios_hist': 1, 'podios_indiv': 1, 'exp_superior': 2},
+            {'nome': 'Veterano C', 'sexo': 'M', 'periodo': 6, 'exp_total': 4, 'podios_hist': 1, 'podios_indiv': 0, 'exp_superior': 2},
+        ]
+    },
 
-# Exemplo 2: equipe novata na OLIP Superior
-simular_equipe(
-    membros=[
-        {'nome': 'Veterano A', 'sexo': 'F', 'periodo': 5, 'exp_total': 5, 'podios_hist': 3, 'podios_indiv': 2, 'exp_superior': 3},
-        {'nome': 'Calouro B', 'sexo': 'M', 'periodo': 1, 'exp_total': 0, 'podios_hist': 0,'exp_superior': 0},
-        {'nome': 'Calouro C', 'sexo': 'M', 'periodo': 2, 'exp_total': 1, 'podios_hist': 0, 'exp_superior': 0},
-    ],
-    olimpiada='Regional', 
-    melhor_modelo=melhor_modelo, 
-    X=X, 
-    categoria='Superior', 
-    ano=2026
-)
+    # --- CENÁRIOS REGIONAL (SBC) ---
+    {
+        "nome_cenario": "Regional 1 - Estreantes na Regional",
+        "olimpiada": "Regional",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Estreante A', 'sexo': 'M', 'periodo': 4, 'exp_total': 1, 'podios_hist': 0, 'exp_superior': 0},
+            {'nome': 'Estreante B', 'sexo': 'M', 'periodo': 4, 'exp_total': 1, 'podios_hist': 0, 'exp_superior': 0},
+            {'nome': 'Estreante C', 'sexo': 'F', 'periodo': 4, 'exp_total': 1, 'podios_hist': 0, 'exp_superior': 0},
+        ]
+    },
+    {
+        "nome_cenario": "Regional 2 - Mista (Desequilibrada)",
+        "olimpiada": "Regional",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Veterana A', 'sexo': 'F', 'periodo': 6, 'exp_total': 5, 'podios_hist': 3, 'exp_superior': 3},
+            {'nome': 'Calouro B',  'sexo': 'M', 'periodo': 2, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
+            {'nome': 'Calouro C',  'sexo': 'M', 'periodo': 2, 'exp_total': 0, 'podios_hist': 0, 'exp_superior': 0},
+        ]
+    },
+    {
+        "nome_cenario": "Regional 3 - Nivelada Intermediária",
+        "olimpiada": "Regional",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Intermediário A', 'sexo': 'M', 'periodo': 6, 'exp_total': 3, 'podios_hist': 1, 'exp_superior': 1},
+            {'nome': 'Intermediária B', 'sexo': 'F', 'periodo': 5, 'exp_total': 2, 'podios_hist': 1, 'exp_superior': 1},
+            {'nome': 'Intermediário C', 'sexo': 'M', 'periodo': 5, 'exp_total': 2, 'podios_hist': 0, 'exp_superior': 1},
+        ]
+    },
+    {
+        "nome_cenario": "Regional 4 - Trio Veterano de Elite",
+        "olimpiada": "Regional",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Veterano A',    'sexo': 'M', 'periodo': 8, 'exp_total': 7, 'podios_hist': 3, 'exp_superior': 4},
+            {'nome': 'Veterano B',    'sexo': 'F', 'periodo': 7, 'exp_total': 6, 'podios_hist': 2, 'exp_superior': 3},
+            {'nome': 'Intermediário', 'sexo': 'M', 'periodo': 5, 'exp_total': 3, 'podios_hist': 1, 'exp_superior': 1},
+        ]
+    },
+    {
+        "nome_cenario": "Regional 5 - Estreantes na Regional + Pódios Individuais",
+        "olimpiada": "Regional",
+        "categoria": "Superior",
+        "membros": [
+            {'nome': 'Estreante A', 'sexo': 'M', 'periodo': 4, 'exp_total': 1, 'podios_hist': 0, 'podios_indiv': 2, 'exp_superior': 0},
+            {'nome': 'Estreante B', 'sexo': 'M', 'periodo': 4, 'exp_total': 1, 'podios_hist': 0, 'podios_indiv': 1, 'exp_superior': 0},
+            {'nome': 'Estreante C', 'sexo': 'F', 'periodo': 4, 'exp_total': 1, 'podios_hist': 0, 'podios_indiv': 0, 'exp_superior': 0},
+        ]
+    }
+]
 
-# Exemplo 3: equipe veterana na Regional Superior
-simular_equipe(
-    membros=[
-        {'nome': 'Veterano A', 'sexo': 'M', 'periodo': 8, 'exp_total': 7, 'podios_hist': 3, 'exp_superior': 4},
-        {'nome': 'Veterano B', 'sexo': 'F', 'periodo': 7, 'exp_total': 6, 'podios_hist': 2, 'exp_superior': 3},
-        {'nome': 'Intermediário', 'sexo': 'M', 'periodo': 5, 'exp_total': 3, 'podios_hist': 1, 'exp_superior': 1},
-    ],
-    olimpiada='Regional', 
-    melhor_modelo=melhor_modelo, 
-    X=X, 
-    categoria='Superior', 
-    ano=2026
-)
+print("\n" + "="*65)
+print("RESULTADOS DAS SIMULAÇÕES (OLIP E REGIONAL - 2027)")
+print("="*65)
+
+for cenario in cenarios_simulacao:
+    print(f"\n>>> {cenario['nome_cenario']}")
+    simular_equipe(
+        membros=cenario["membros"],
+        olimpiada=cenario["olimpiada"],
+        melhor_modelo=melhor_modelo,
+        X=X,
+        categoria=cenario["categoria"],
+        ano=2027
+    )
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -206,11 +263,14 @@ print(f"\n{'='*80}")
 print("CONCLUÍDO!")
 print(f"{'='*80}")
 print(f"\nArquivos gerados em: {PASTA_SAIDA}")
-print("  • modelo_preditivo_resultados.png  — gráficos completos")
-print("  • comparacao_modelos.csv           — métricas dos 3 modelos")
-print("  • equipes_com_predicao.csv         — todas as equipes com prob. prevista")
+print("  • grafico_1_metricas.png")
+print("  • grafico_2_matriz_confusao.png")
+print("  • grafico_3_features.png")
+print("  • grafico_4_roc.png")
+print("  • grafico_5_distribuicao.png")
+print("  • grafico_6_acuracia_olimpiada.png")
+print("  • equipes_com_predicao.csv")
 print(f"\nMelhor modelo: {melhor_nome}")
 print(f"  F1-Score (CV): {resultados[melhor_nome]['F1-Score']:.4f}")
 print(f"  Acurácia (CV): {resultados[melhor_nome]['Acurácia']:.4f}")
-print(f"\nPara simular uma nova equipe, chame a função simular_equipe() no final do script.")
 print(f"{'='*80}\n")

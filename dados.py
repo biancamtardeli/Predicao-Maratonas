@@ -24,7 +24,7 @@ def carregar_dados():
     df['Ano']           = pd.to_numeric(df['Ano'],            errors='coerce')
     df['Periodo']       = pd.to_numeric(df['Ano / período'],  errors='coerce')
 
-    # ── NOVA LÓGICA: INFERÊNCIA DE NÃO-MEDALHISTAS NA OLIP ───────────
+    # Inferência de não-medalhistas na OLIP
     regional_df = df[df['Olimpíada'] == 'Regional'].copy()
     novas_linhas = []
     
@@ -40,7 +40,7 @@ def carregar_dados():
                              (df['Ano'] == ano) & 
                              (df['Equipe'] == equipe)].shape[0] > 0
         
-        # Se não tem registro na OLIP, assumimos que participou mas não ganhou medalha
+        # Se não tem registro na OLIP, assume-se que participou mas não ganhou medalha
         if not participou_olip:
             equipe_olip = dados_equipe.copy()
             equipe_olip['Olimpíada'] = 'OLIP'
@@ -55,7 +55,6 @@ def carregar_dados():
         df = pd.concat([df, df_inferidos], ignore_index=True)
     # ─────────────────────────────────────────────────────────────────
 
-    # === TRECHO PARA IMPRESSÃO DE TESTE ===
     # Filtra apenas os registros inferidos (Classificação = 999)
     inferidos = df[df['Classificação'] == 999]
     
@@ -66,7 +65,7 @@ def carregar_dados():
     inferidos.to_csv('conferencia_olip.csv', index=False, encoding='utf-8')
     # =======================================
 
-    # Ordenação cronológica — essencial para feature engineering
+    # Ordenação cronológica
     df = df.sort_values(['Ano', 'Olimpíada', 'Nome']).reset_index(drop=True)
     df.to_csv('dados_processados.csv', index=False, encoding='utf-8')
 

@@ -8,6 +8,7 @@ except ImportError:
     print("⚠  XGBoost não instalado. Execute: pip install xgboost")
 
 PASTA_SAIDA = Path.cwd() / "saida_modelo"
+PASTA_SAIDA.mkdir(parents=True, exist_ok=True)
 ARQUIVO_CSV = "dados_das_maratonas.csv"
 
 SEED = 42
