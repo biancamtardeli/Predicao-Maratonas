@@ -1,7 +1,4 @@
 Nome,Categoria,Sexo,Ano / período,Equipe,Classificação,Olimpíada,Ano,Periodo
-Gabriel Bianchin de Oliveira,Superior,M,8.0,Ainda Não Decidimos O Nome,999.0,OLIP,2018.0,8.0
-Aline Regina de Oliveira,Superior,F,8.0,Ainda Não Decidimos O Nome,999.0,OLIP,2018.0,8.0
-Samuel Eduardo da Silva,Superior,M,8.0,Ainda Não Decidimos O Nome,999.0,OLIP,2018.0,8.0
 Amanda Beatriz Augusta da Silva,Superior,F,6.0,Baguncinha na Califórnia,999.0,OLIP,2018.0,6.0
 Dimas Antônio Luna Paiva,Superior,M,6.0,Baguncinha na Califórnia,999.0,OLIP,2018.0,6.0
 Vanessa da Silva Machado,Superior,F,4.0,Baguncinha na Califórnia,999.0,OLIP,2018.0,4.0
@@ -41,21 +38,12 @@ Lucas Magalhães Prado,Superior,M,4.0,No Coffee No Code,999.0,OLIP,2019.0,4.0
 Gabriel Messias de Oliveira,Superior,M,4.0,);DROP TABLE 'alunos';,999.0,OLIP,2022.0,4.0
 João Vítor de Paiva Moreira,Superior,M,4.0,);DROP TABLE 'alunos';,999.0,OLIP,2022.0,4.0
 Larissa de Souza Pereira,Superior,F,8.0,);DROP TABLE 'alunos';,999.0,OLIP,2022.0,8.0
-Leonardo Barbieri Pereira,Superior,M,8.0,Amigos do Joãopin,999.0,OLIP,2022.0,8.0
-João Pedro do Nascimento Silva,Superior,M,8.0,Amigos do Joãopin,999.0,OLIP,2022.0,8.0
-Murilo Augusto dos Santos,Superior,M,8.0,Amigos do Joãopin,999.0,OLIP,2022.0,8.0
-Eliezer Cardoso Alves,Superior,M,8.0,"Fugere Urbem, Locus Amoenus ¯\_(:-))_/¯",999.0,OLIP,2022.0,8.0
-Gabriel Vieira Cardoso,Superior,M,8.0,"Fugere Urbem, Locus Amoenus ¯\_(:-))_/¯",999.0,OLIP,2022.0,8.0
-Ygor Ribeiro Costa,Superior,M,8.0,"Fugere Urbem, Locus Amoenus ¯\_(:-))_/¯",999.0,OLIP,2022.0,8.0
 Alex Martins da Silva,Superior,M,2.0,The Programmingstones,999.0,OLIP,2022.0,2.0
 Cássia Aparecida Torlai de Souza,Superior,F,4.0,The Programmingstones,999.0,OLIP,2022.0,4.0
 Luiz Ricardo Ferlin Alves,Superior,M,2.0,The Programmingstones,999.0,OLIP,2022.0,2.0
 Isaias Santos de Souza,Superior,M,,Advogado Paloma,999.0,OLIP,2023.0,
 João Gabriel Francisco de Azevedo,Superior,M,,Advogado Paloma,999.0,OLIP,2023.0,
 Maria Jaqueline dos Santos Silva,Superior,F,,Advogado Paloma,999.0,OLIP,2023.0,
-Luiz Ricardo Ferlin Alves,Superior,M,4.0,Amigos do Gaguinho,999.0,OLIP,2023.0,4.0
-Eliezer Cardoso Alves,Superior,M,8.0,Amigos do Gaguinho,999.0,OLIP,2023.0,8.0
-Ygor Ribeiro Costa,Superior,M,8.0,Amigos do Gaguinho,999.0,OLIP,2023.0,8.0
 Erik Bolonha Abdala,Superior,M,,C + ou -,999.0,OLIP,2023.0,
 João Paulo Lúcio Aparecido,Superior,M,,C + ou -,999.0,OLIP,2023.0,
 Juan Gabriel Ozeas,Superior,M,,C + ou -,999.0,OLIP,2023.0,

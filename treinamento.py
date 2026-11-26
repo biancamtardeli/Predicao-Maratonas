@@ -37,7 +37,8 @@ def criar_modelos():
         n_estimators=200, max_depth=6, min_samples_leaf=2,
         random_state=SEED),
     'Gradient Boosting': GradientBoostingClassifier(
-        n_estimators=200, learning_rate=0.05, max_depth=4,
+        n_estimators=150, learning_rate=0.05, max_depth=3,
+        min_samples_leaf=4, subsample=0.8,
         random_state=SEED),
     }
 

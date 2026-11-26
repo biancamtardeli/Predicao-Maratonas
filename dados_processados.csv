@@ -188,7 +188,6 @@ Samuel Lucas Santos Gomes,Superior,M,,,40.0,Algar,2018.0,
 Thiago Alvarenga Prado,Superior,M,,,35.0,Algar,2018.0,
 Ygor Ribeiro Costa,Superior,M,,,30.0,Algar,2018.0,
 Aline Regina de Oliveira,Superior,F,7.0,Ainda Não Decidimos o Nome,3.0,OLIP,2018.0,7.0
-Aline Regina de Oliveira,Superior,F,8.0,Ainda Não Decidimos O Nome,999.0,OLIP,2018.0,8.0
 Amanda Beatriz Augusta da Silva,Superior,F,6.0,Baguncinha na Califórnia,999.0,OLIP,2018.0,6.0
 Andreza Cristina Barbieri Serra,Superior,F,2.0,Modus Ponens Malditos,999.0,OLIP,2018.0,2.0
 Breno Henrique Anacleto,Superior,M,6.0,M-SHAKE,999.0,OLIP,2018.0,6.0
@@ -203,7 +202,6 @@ Douglas Barbosa Martins da Costa,Superior,M,6.0,M-SHAKE,999.0,OLIP,2018.0,6.0
 Eliezer Cardoso Alves,Técnico,M,,return fenix,1.0,OLIP,2018.0,
 Elyssa Dalva Ribeiro Bueno,Superior,M,6.0,Python no tucupi,999.0,OLIP,2018.0,6.0
 Gabriel Bianchin de Oliveira,Superior,M,7.0,Ainda Não Decidimos o Nome,3.0,OLIP,2018.0,7.0
-Gabriel Bianchin de Oliveira,Superior,M,8.0,Ainda Não Decidimos O Nome,999.0,OLIP,2018.0,8.0
 Gerivaldo Cesar Silva,Superior,M,6.0,Modus Ponens Malditos,999.0,OLIP,2018.0,6.0
 Higor Aparecido Leandro,Superior,M,6.0,M-SHAKE,999.0,OLIP,2018.0,6.0
 Ivan Luis Gonçalves,Superior,M,6.0,Python no tucupi,999.0,OLIP,2018.0,6.0
@@ -225,7 +223,6 @@ Natanael Fabrício Dacioli Batista,Superior,M,4.0,Jesus is Output: the return,99
 Paula Cristina Martins,Técnico,F,,if(coffee)break,2.0,OLIP,2018.0,
 Rafael Vicente da Silva,Superior,M,2.0,Platéia,999.0,OLIP,2018.0,2.0
 Samuel Eduardo da Silva,Superior,M,7.0,Ainda Não Decidimos o Nome,3.0,OLIP,2018.0,7.0
-Samuel Eduardo da Silva,Superior,M,8.0,Ainda Não Decidimos O Nome,999.0,OLIP,2018.0,8.0
 Samuel Lucas Santos Gomes,Superior,M,4.0,Jesus is Output: the return,999.0,OLIP,2018.0,4.0
 Thiago Alvarenga Prado,Técnico,M,,if(coffee)break,2.0,OLIP,2018.0,
 Vanessa da Silva Machado,Superior,F,4.0,Baguncinha na Califórnia,999.0,OLIP,2018.0,4.0
@@ -405,24 +402,18 @@ Ana Paula Gomes Jacó,Técnico,F,,C++ só para baixinhos,3.0,OLIP,2022.0,
 Bhryan Stepenhen da Cruz,Técnico,M,,C tá loco,2.0,OLIP,2022.0,
 Cássia Aparecida Torlai de Souza,Superior,F,4.0,The Programmingstones,999.0,OLIP,2022.0,4.0
 Eliezer Cardoso Alves,Superior,M,7.0,Pylantras,3.0,OLIP,2022.0,7.0
-Eliezer Cardoso Alves,Superior,M,8.0,"Fugere Urbem, Locus Amoenus ¯\_(:-))_/¯",999.0,OLIP,2022.0,8.0
 Gabriel Messias de Oliveira,Superior,M,4.0,);DROP TABLE 'alunos';,999.0,OLIP,2022.0,4.0
 Gabriel Vieira Cardoso,Superior,M,7.0,Pylantras,3.0,OLIP,2022.0,7.0
-Gabriel Vieira Cardoso,Superior,M,8.0,"Fugere Urbem, Locus Amoenus ¯\_(:-))_/¯",999.0,OLIP,2022.0,8.0
 Gustavo Costa Almeida,Técnico,M,,C++ só para baixinhos,3.0,OLIP,2022.0,
 João Pedro do Nascimento Silva,Superior,M,7.0,Amigos do Joaopin,2.0,OLIP,2022.0,7.0
-João Pedro do Nascimento Silva,Superior,M,8.0,Amigos do Joãopin,999.0,OLIP,2022.0,8.0
 João Victor de Lima Oliveira,Técnico,M,,C tá loco,2.0,OLIP,2022.0,
 João Vítor de Paiva Moreira,Superior,M,4.0,);DROP TABLE 'alunos';,999.0,OLIP,2022.0,4.0
 Julio Nunes Avelar,Técnico,M,,C tá loco,2.0,OLIP,2022.0,
 Larissa de Souza Pereira,Superior,F,8.0,);DROP TABLE 'alunos';,999.0,OLIP,2022.0,8.0
-Leonardo Barbieri Pereira,Superior,M,8.0,Amigos do Joãopin,999.0,OLIP,2022.0,8.0
 Luiz Ricardo Ferlin Alves,Superior,M,2.0,The Programmingstones,999.0,OLIP,2022.0,2.0
 Matheus da Silva Romualdo,Técnico,M,,C++ só para baixinhos,3.0,OLIP,2022.0,
 Murilo Augusto Dos Santos,Superior,M,7.0,Amigos do Joaopin,2.0,OLIP,2022.0,7.0
-Murilo Augusto dos Santos,Superior,M,8.0,Amigos do Joãopin,999.0,OLIP,2022.0,8.0
 Ygor Ribeiro Costa,Superior,M,7.0,"Fugere Urbem, Locus Amoenus ¯\_(ツ)_/¯",1.0,OLIP,2022.0,7.0
-Ygor Ribeiro Costa,Superior,M,8.0,"Fugere Urbem, Locus Amoenus ¯\_(:-))_/¯",999.0,OLIP,2022.0,8.0
 Alex Martins da Silva,Superior,M,2.0,The Programmingstones,10.0,Regional,2022.0,2.0
 Cássia Aparecida Torlai de Souza,Superior,F,4.0,The Programmingstones,10.0,Regional,2022.0,4.0
 Eliezer Cardoso Alves,Superior,M,8.0,"Fugere Urbem, Locus Amoenus ¯\_(:-))_/¯",3.0,Regional,2022.0,8.0
@@ -477,7 +468,6 @@ Luiz Ricardo Ferlin Alves,Superior,M,,Amigos do Gaguinho,35.0,Nacional,2023.0,
 Ygor Ribeiro Costa,Superior,M,,Amigos do Gaguinho,35.0,Nacional,2023.0,
 Ana Paula Gomes Jacó,Técnico,F,,Coffee Overflow,2.0,OLIP,2023.0,
 Eliandro de Souza Júnior,Superior,M,2.0,Depois de 3 WA pede Música?,999.0,OLIP,2023.0,2.0
-Eliezer Cardoso Alves,Superior,M,8.0,Amigos do Gaguinho,999.0,OLIP,2023.0,8.0
 Erik Bolonha Abdala,Superior,M,,C + ou -,999.0,OLIP,2023.0,
 Gabriel Henrique Bernardes Santos,Superior,M,,Ian Turbinado,999.0,OLIP,2023.0,
 Guilherme Vaz de Melo Lima,Superior,M,,Ian Turbinado,999.0,OLIP,2023.0,
@@ -491,13 +481,11 @@ Leonardo Barbieri Pereira,Superior,M,,"Murilo, Amigos do",2.0,OLIP,2023.0,
 Leonardo Eric da Silva,Superior,M,,Leop,999.0,OLIP,2023.0,
 Leonardo Henrique Juliano da Silva,Superior,M,,Leop,999.0,OLIP,2023.0,
 Luana Samara Nogueira de Castro,Superior,F,2.0,Depois de 3 WA pede Música?,999.0,OLIP,2023.0,2.0
-Luiz Ricardo Ferlin Alves,Superior,M,4.0,Amigos do Gaguinho,999.0,OLIP,2023.0,4.0
 Maria Jaqueline dos Santos Silva,Superior,F,,Advogado Paloma,999.0,OLIP,2023.0,
 Matheus da Silva Romualdo,Técnico,M,,Coffee Overflow,2.0,OLIP,2023.0,
 Paulo Ricardo Alves Chagas,Superior,M,,Ian Turbinado,999.0,OLIP,2023.0,
 Tiago Fernandes Morais,Superior,M,2.0,Depois de 3 WA pede Música?,999.0,OLIP,2023.0,2.0
 Ygor Ribeiro Costa,Superior,M,,"Murilo, Amigos do",2.0,OLIP,2023.0,
-Ygor Ribeiro Costa,Superior,M,8.0,Amigos do Gaguinho,999.0,OLIP,2023.0,8.0
 Eliandro de Souza Júnior,Superior,M,2.0,Depois de 3 WA pede Música?,11.0,Regional,2023.0,2.0
 Eliezer Cardoso Alves,Superior,M,8.0,Amigos do Gaguinho,1.0,Regional,2023.0,8.0
 Erik Bolonha Abdala,Superior,M,,C + ou -,10.0,Regional,2023.0,

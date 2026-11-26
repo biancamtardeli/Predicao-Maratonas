@@ -26,30 +26,29 @@ def carregar_dados():
 
     # Inferência de não-medalhistas na OLIP
     regional_df = df[df['Olimpíada'] == 'Regional'].copy()
+    olip_df = df[df['Olimpíada'] == 'OLIP']
     novas_linhas = []
-    
-    # Agrupar quem participou da Regional por Ano e Equipe
+
     grupos_regional = regional_df.groupby(['Ano', 'Equipe'])
-    
+
     for (ano, equipe), dados_equipe in grupos_regional:
         if pd.isna(equipe) or equipe == 'nan' or equipe == 'None':
             continue
-            
-        # Verificar se essa equipe tem registro na OLIP nesse mesmo ano
-        participou_olip = df[(df['Olimpíada'] == 'OLIP') & 
-                             (df['Ano'] == ano) & 
-                             (df['Equipe'] == equipe)].shape[0] > 0
-        
-        # Se não tem registro na OLIP, assume-se que participou mas não ganhou medalha
-        if not participou_olip:
+
+        olip_ano = olip_df[olip_df['Ano'] == ano]
+
+        mesma_equipe = (olip_ano['Equipe'].str.lower() == equipe.lower()).any()
+
+        membros_equipe = set(dados_equipe['Nome'])
+        membros_olip_ano = set(olip_ano['Nome'])
+        membro_ja_na_olip = len(membros_equipe.intersection(membros_olip_ano)) > 0
+
+        if not mesma_equipe and not membro_ja_na_olip:
             equipe_olip = dados_equipe.copy()
             equipe_olip['Olimpíada'] = 'OLIP'
-            # Uma classificação impossível de ganhar medalha para gerar alto_desempenho = 0
-            equipe_olip['Classificação'] = 999 
-            
+            equipe_olip['Classificação'] = 999
             novas_linhas.append(equipe_olip)
             
-    # Adicionar as equipes inferidas ao dataframe original
     if novas_linhas:
         df_inferidos = pd.concat(novas_linhas, ignore_index=True)
         df = pd.concat([df, df_inferidos], ignore_index=True)
