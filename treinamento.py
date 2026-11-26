@@ -39,7 +39,7 @@ def criar_modelos():
     'Gradient Boosting': GradientBoostingClassifier(
         n_estimators=150, learning_rate=0.05, max_depth=3,
         min_samples_leaf=4, subsample=0.8,
-        random_state=SEED),
+        random_state=SEED), 
     }
 
     if XGBOOST_DISPONIVEL:
